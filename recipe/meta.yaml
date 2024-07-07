@@ -1,6 +1,5 @@
 {% set version = '2.1' %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-bayeslogit
@@ -13,9 +12,8 @@ source:
   sha256: 3a423f68339ed1bf25e21be53b1fd68452ed7807b17c36239fba759dc6fc6b70
 
 build:
-  merge_build_host: True  # [win]
   skip: true  # [r_base == "3.5.1"]
-  number: 3
+  number: 4
   rpaths:
     - lib/R/lib/
     - lib/
@@ -23,7 +21,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}              # [not win]
+    - {{ stdlib("c") }}                # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
+    - {{ stdlib("m2w64_c") }}          # [win]
     - {{ compiler('cxx') }}            # [not win]
     - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}filesystem        # [win]
@@ -35,7 +35,6 @@ requirements:
     - r-base
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
 
 test:
   commands:
