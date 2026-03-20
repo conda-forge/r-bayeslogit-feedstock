@@ -1,4 +1,4 @@
-{% set version = '2.1' %}
+{% set version = "2.3" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,11 +9,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/BayesLogit_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/BayesLogit/BayesLogit_{{ version }}.tar.gz
-  sha256: 3a423f68339ed1bf25e21be53b1fd68452ed7807b17c36239fba759dc6fc6b70
+  sha256: aa98b8b7de745de7c0860d06de3fb8604b4cfa68b490ab6f0710e0a0312ff2a4
 
 build:
   skip: true  # [r_base == "3.5.1"]
-  number: 5
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -44,8 +44,7 @@ test:
 about:
   home: https://github.com/jwindle/BayesLogit
   license: GPL-3.0-or-later
-  summary: Tools for sampling from the PolyaGamma distribution based on Polson, Scott, and Windle
-    (2013) <doi:10.1080/01621459.2013.829001>.  Useful for logistic regression.
+  summary: Tools for sampling from the PolyaGamma distribution based on Polson, Scott, and Windle (2013) <doi:10.1080/01621459.2013.829001>.  Useful for logistic regression.
   license_family: GPL3
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
