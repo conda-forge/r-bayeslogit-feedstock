@@ -1,4 +1,4 @@
-{% set version = "2.3" %}
+{% set version = "2.4" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/BayesLogit_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/BayesLogit/BayesLogit_{{ version }}.tar.gz
-  sha256: aa98b8b7de745de7c0860d06de3fb8604b4cfa68b490ab6f0710e0a0312ff2a4
+  sha256: 00bacc5569f233d4656e3d5c1bf97b65edfbc83c81addf5547b6493259f8db12
 
 build:
   number: 0
